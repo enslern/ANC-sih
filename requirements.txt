@@ -1,0 +1,14 @@
+torch
+torchaudio
+numpy
+scipy
+soundfile
+librosa
+pyroomacoustics
+audiomentations
+pesq
+pystoi
+sounddevice
+onnx
+onnxruntime
+tqdm
