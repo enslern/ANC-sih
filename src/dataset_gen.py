@@ -22,8 +22,6 @@ def load_wav(path, sr=SAMPLE_RATE):
 
 
 def simulate_room_path(signal, sr=SAMPLE_RATE):
-    """Push signal through a simple simulated room to get a plausible
-    primary-path impulse response (Section 2.4 of the build guide)."""
     room = pra.ShoeBox(
         [6, 5, 3],
         fs=sr,
@@ -74,7 +72,7 @@ def generate_dataset(n_examples=2000, seg_seconds=3.0, use_room_sim=True):
     if not clean_files or not noise_files:
         raise RuntimeError(
             f"Need wavs in {CLEAN_DIR} and {NOISE_DIR}. "
-            "Populate with LibriSpeech/VCTK (clean) and gunshot/rotor/engine/siren/artillery (noise)."
+            "Populate with LibriSpeech (clean) and ESC-50 (noise)."
         )
 
     seg_len = int(seg_seconds * SAMPLE_RATE)
@@ -99,7 +97,7 @@ def generate_dataset(n_examples=2000, seg_seconds=3.0, use_room_sim=True):
                 if len(clean_path_audio) == seg_len:
                     clean = clean_path_audio
             except Exception:
-                pass  # fall back to dry clean if room sim fails on this segment
+                pass
 
         snr_db = random.uniform(*SNR_RANGE_DB)
         noisy, clean_seg = mix_at_snr(clean, noise, snr_db)
