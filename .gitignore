@@ -1,0 +1,7 @@
+﻿data/
+*.wav
+*.flac
+esc50.zip
+checkpoints/
+__pycache__/
+*.pyc
