@@ -1,3 +1,8 @@
+# Web Framework & API Server
+fastapi
+uvicorn
+python-multipart
+
 # Core
 numpy
 scipy
@@ -16,10 +21,6 @@ torchaudio
 
 # Evaluation
 pystoi
-# pesq is OPTIONAL — needs Microsoft C++ Build Tools to install on Windows.
-# Uncomment below once you've installed the build tools, or skip it —
-# STOI + SNR targets don't need it.
-# pesq
 
 # Real-time demo
 sounddevice
