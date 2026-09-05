@@ -21,7 +21,7 @@ torchaudio
 
 # Evaluation
 pystoi
-
+pesq
 # Real-time demo
 sounddevice
 
