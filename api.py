@@ -38,21 +38,19 @@ app = FastAPI(
 # CORS
 # ============================================================
 
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+# Allow CORS for Vercel frontend and preflight requests
 app.add_middleware(
     CORSMiddleware,
-
-    allow_origins=[
-        "http://localhost:3000",
-        "http://localhost:5173",
-    ],
-
+    allow_origins=["*"],  # Allows all origins (Vercel, localhost, etc.)
     allow_credentials=True,
-
-    allow_methods=["*"],
-
-    allow_headers=["*"],
+    allow_methods=["*"],  # Allows OPTIONS, POST, GET, etc.
+    allow_headers=["*"],  # Allows Content-Type and custom headers
 )
-
 
 # ============================================================
 # DEVICE
